@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Hawi Fikadu | Portfolio</title> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> 
+    <style>   
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; } 
+        body { line-height: 1.6; color: #ffffff; scroll-behavior: smooth; background-color: #0f172a; } 
+        .navbar { 
+            background-color:red; 
+            padding: 1.2rem 5%; 
+            display: flex; 
+            justify-content: flex-end; 
+            align-items: center;
+            position: fixed; 
+            width: 100%; 
+            top: 0; 
+            z-index: 1000; 
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        } 
+        .nav-links a { 
+            color: white; 
+            text-decoration: none; 
+            margin-left: 1.5rem; 
+            font-weight: 600; 
+            font-size: 0.9rem;
+            transition: 0.3s; 
+        } 
+        .nav-links a:hover { color: #fbbf24; } 
+        .hero { 
+            height: 100vh; 
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%); 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+        } 
+        .hero-content h1 { font-size: 3.8rem; margin-bottom: 10px; } 
+        .hero-content span { color: #fbbf24; } 
+        .btn-contact { display: inline-block; background: #fbbf24; color: #1e1b4b; text-decoration: none; border-radius: 4px; font-weight: bold; margin-top: 30px; padding: 12px 30px; transition: 0.3s; } 
+        section { padding: 100px 10%; }
+        h2 { text-align: center; margin-bottom: 50px; font-size: 2.5rem; color: #ffffff; }
+        #about { 
+            background-color: #858153; 
+            color: #ecfdf5;
+        }
+        .services { 
+            background-color: #1e3a8a; 
+        }
+        .service-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .service-box { 
+            background: rgba(255, 255, 255, 0.1); 
+            padding: 40px; 
+            border-radius: 10px; 
+            text-align: center; 
+            transition: 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .service-box:hover { background: rgba(255, 255, 255, 0.2); transform: translateY(-10px); }
+        .service-box i { font-size: 3rem; color: #fbbf24; margin-bottom: 20px; }
+        #skill { 
+            background-color: #4c0519; 
+        }
+        .skills-container { display: flex; gap: 60px; flex-wrap: wrap; }
+        .skills-content, .skills-bars { flex: 1; min-width: 300px; }
+        .bar-container { margin-bottom: 25px; } 
+        .info { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: bold; } 
+        .line { height: 10px; background: rgba(255, 255, 255, 0.2); border-radius: 10px; position: relative; } 
+        .line::before { content: ""; position: absolute; height: 100%; background: #fbbf24; border-radius: 10px; } 
+        .line.web::before { width: 88%; } 
+        .line.dev::before { width: 83%; } 
+        .line.problem::before { width: 85%; } 
+        
+        .read-more-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .read-more-btn:hover { background: #ffffff; color: #4c0519; }
+        .contact { 
+            background-color: #111827; 
+        }
+        .contact-container { display: flex; gap: 50px; flex-wrap: wrap; }
+        .contact-info { flex: 1; min-width: 300px; }
+        .contact-form { flex: 1.5; min-width: 300px; display: flex; flex-direction: column; gap: 15px; }
+        
+        .info-item { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; font-size: 1.1rem; }
+        .info-item i { color: #fbbf24; font-size: 1.5rem; }
+
+        .contact-form input, .contact-form textarea { 
+            padding: 15px; 
+            border-radius: 4px; 
+            border: 1px solid #374151; 
+            background: #1f2937; 
+            color: white; 
+            outline: none;
+        }
+        .contact-form input:focus { border-color: #fbbf24; }
+        .btn-send { 
+            padding: 15px; 
+            background: #fbbf24; 
+            border: none; 
+            font-weight: bold; 
+            cursor: pointer; 
+            border-radius: 4px; 
+            color: #111827; 
+            transition: 0.3s;
+            text-align: center;
+            text-decoration: none;
+        }
+        .btn-send:hover { background: #f59e0b; }
+        footer { background-color: #000000; color: #94a3b8; padding: 40px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); } 
+        footer span { color: #fbbf24; font-weight: bold; } 
+
+        @media (max-width: 768px) { .navbar { justify-content: center; padding: 1rem; } .nav-links { margin-top: 15px; } .hero-content h1 { font-size: 2.8rem; } } 
+    </style> 
+</head> 
+<body> 
+
+    <nav class="navbar"> 
+        <div class="nav-links"> 
+            <a href="#home">Home</a> 
+            <a href="#about">About</a> 
+            <a href="#services">Services</a> 
+            <a href="#skill">Skills</a> 
+            <a href="#contact">Contact</a> 
+        </div> 
+    </nav> 
+
+    <section id="home" class="hero"> 
+        <div class="hero-content"> 
+            <h1>Hi, I am <span>Hawi Fikadu</span></h1> 
+            <p style="font-size: 1.5rem; color: #e2e8f0;">Natural Science Student & Web Developer</p>
+            <a href="#contact" class="btn-contact">contact me</a> 
+        </div> 
+    </section> 
+
+    <section id="about"> 
+        <h2>About Me</h2> 
+        <p style="max-width: 800px; margin: 0 auto; text-align: center; font-size: 1.2rem;">
+            I am <b>Hawi Fikadu</b>. I am a Natural Science student with a strong passion for Web Development. 
+            I build high-quality digital products with a focus on clean design and professional code. 
+            I love combining my scientific background with technology to solve complex problems.
+        </p>
+    </section> 
+
+    <section id="services" class="services">
+        <h2>My Services</h2>
+        <div class="service-container">
+            <div class="service-box">
+                <i class="fa-solid fa-code"></i>
+                <h3>Web Development</h3>
+                <p>I will build you a fast, secure, and professional website tailored to your needs.</p>
+            </div>
+            <div class="service-box">
+                <i class="fa-solid fa-flask"></i>
+                <h3>Scientific Analysis</h3>
+                <p>Applying natural science principles to technical problem solving and data clarity.</p>
+            </div>
+            <div class="service-box">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+                <h3>Tech Support</h3>
+                <p>I provide maintenance and technical guidance to ensure your systems run smoothly.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skill"> 
+        <h2>My Skills</h2>
+        <div class="skills-container">
+            <div class="skills-content">
+                <p>As a Natural Science student and developer, I have a unique perspective on modern web technologies and systematic problem-solving.</p>
+                <a href="#home" class="read-more-btn">Read More</a>
+            </div>
+            <div class="skills-bars"> 
+                <div class="bar-container"> 
+                    <div class="info"><span>Web Design</span><span>88%</span></div> 
+                    <div class="line web"></div> 
+                </div> 
+                <div class="bar-container"> 
+                    <div class="info"><span>Web Development</span><span>83%</span></div> 
+                    <div class="line dev"></div> 
+                </div> 
+                <div class="bar-container"> 
+                    <div class="info"><span>Scientific Thinking</span><span>85%</span></div> 
+                    <div class="line problem"></div> 
+                </div> 
+            </div> 
+        </div>
+    </section> 
+
+    <section id="contact" class="contact"> 
+        <h2>Contact Me</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Hawi Fikadu</span>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>fikaduhawi@gmail.com</span>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>09********</span>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Addis Ababa, Ethiopia</span>
+                </div>
+            </div>
+
+            <form class="contact-form"> 
+                <input type="text" placeholder="Your Name"> <input type="email" placeholder="Your Email"> <textarea placeholder="Tell me about your project..." rows="5"></textarea> 
+                
+                <button type="button" class="btn-send" onclick="window.location.href='#home'">
+                    Send Message
+                </button> 
+            </form> 
+        </div>
+    </section> 
+
+    <footer> 
+        <p>&copy; 2026 <span>Hawi Fikadu</span>. All Rights Reserved.</p> 
+    </footer> 
+</body> 
+</html>
